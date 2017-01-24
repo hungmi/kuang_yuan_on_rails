@@ -1,0 +1,10 @@
+<tr>
+	<td><%= example.name %></td>
+	<td><%= example.place %></td>
+	<td><%= example.designer %></td>
+	<td><%= simple_format example.description %></td>
+	<td style="white-space: nowrap;">
+		<%= link_to "編輯", edit_admin_example_path(example), class: "btn btn-primary btn-sm" %> |
+		<%= link_to "刪除", admin_example_path(example), method: :delete, data: { confirm: "確定要刪除嗎？" }, class: "btn btn-danger btn-sm" %>
+	</td>
+</tr>

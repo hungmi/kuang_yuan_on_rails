@@ -10,9 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170124071244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "example_and_stones", force: :cascade do |t|
+    t.integer  "example_id"
+    t.integer  "stone_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["example_id", "stone_id"], name: "index_example_and_stones_on_example_id_and_stone_id", unique: true, using: :btree
+    t.index ["example_id"], name: "index_example_and_stones_on_example_id", using: :btree
+    t.index ["stone_id"], name: "index_example_and_stones_on_stone_id", using: :btree
+  end
+
+  create_table "examples", force: :cascade do |t|
+    t.string   "name"
+    t.string   "place"
+    t.string   "designer"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "stones", force: :cascade do |t|
+    t.string   "name"
+    t.string   "origin"
+    t.string   "feature"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "technique_and_stones", force: :cascade do |t|
+    t.integer  "technique_id"
+    t.integer  "stone_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["stone_id"], name: "index_technique_and_stones_on_stone_id", using: :btree
+    t.index ["technique_id", "stone_id"], name: "index_technique_and_stones_on_technique_id_and_stone_id", unique: true, using: :btree
+    t.index ["technique_id"], name: "index_technique_and_stones_on_technique_id", using: :btree
+  end
+
+  create_table "techniques", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_foreign_key "example_and_stones", "examples"
+  add_foreign_key "example_and_stones", "stones"
+  add_foreign_key "technique_and_stones", "stones"
+  add_foreign_key "technique_and_stones", "techniques"
 end

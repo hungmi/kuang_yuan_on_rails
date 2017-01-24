@@ -1,3 +1,26 @@
+body:not(.home) #home {
+	min-height: 175px;
+}
+
+table.table {
+  th, td {
+		word-break: break-all;
+  }
+}
+
+label.hvr-rectangle-out {
+  margin-top: 0em;
+  input[type="submit"] {
+	  border: none;
+	  outline: none;
+	  background: none;
+	  color: #8ec21f;
+	}
+	&:hover input[type="submit"] {
+		color: #fff;
+	}
+}
+
 @media(max-width:375px){
 	.map iframe {
 		min-height: 250px;

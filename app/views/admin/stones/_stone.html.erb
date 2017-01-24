@@ -1,0 +1,10 @@
+<tr>
+	<td><%= stone.name %></td>
+	<td><%= stone.feature %></td>
+	<td><%= stone.origin %></td>
+	<td><%= simple_format stone.description %></td>
+	<td style="white-space: nowrap;">
+		<%= link_to "編輯", edit_admin_stone_path(stone), class: "btn btn-primary btn-sm" %> |
+		<%= link_to "刪除", admin_stone_path(stone), method: :delete, data: { confirm: "確定要刪除嗎？" }, class: "btn btn-danger btn-sm" %>
+	</td>
+</tr>

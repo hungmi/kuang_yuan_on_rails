@@ -4,10 +4,20 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <title>礦元石業</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript">
+	    jQuery(document).ready(function($) {
+	        $(".scroll").click(function(event){		
+	            event.preventDefault();
+	            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+	        });
+	    });
+    </script>
     <style type="text/css">
+    	new WOW().init();
       @import url(http://fonts.googleapis.com/earlyaccess/cwtexhei.css);
       body{
         font-family:'cwTeXHei', sans-serif;
@@ -15,19 +25,9 @@
     </style>
   </head>
 
-  <body class="<%= controller_name %> <%= action_name %>">
-  	<%= render "common/header" %>
+  <body>
+  	<%= render "admin/common/header" %>
     <%= yield %>
-    <%= render "common/footer" %>
-    <%= javascript_include_tag 'application' %>
-    <script type="text/javascript">
-      jQuery(document).ready(function($) {
-          $(".scroll").click(function(event){   
-              event.preventDefault();
-              $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-          });
-      });
-      new WOW().init();
-    </script>
+    <%= render "admin/common/footer" %>
   </body>
 </html>

@@ -1,0 +1,18 @@
+<%= form_for ["admin", @technique] do |f| %>
+	<%= form_errors(@technique) %>
+	<div class="form-group">
+		<%= f.label :name %>
+		<%= f.text_field :name, class: "form-control" %>	
+	</div>
+	<div class="form-group">
+		<%= f.label :description %>
+		<%= f.text_area :description, class: "form-control", rows: 7 %>
+	</div>
+	<div class="form-group">
+		<%= f.label :stone_ids %>
+		<%= f.collection_select :stone_ids, Stone.all, :id, :name, {}, class: "form-control select2",  multiple: "multiple" %>
+	</div>
+	<label class="hvr-rectangle-out agileits w3layouts">
+		<%= f.submit "儲存" %>
+	</label>
+<% end %>

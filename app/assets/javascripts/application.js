@@ -12,5 +12,14 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
+//= require select2
+//= require select2_locale_zh-TW
 //= require jquery_ujs
 //= require_tree .
+
+$(document).on("ready", function(){
+	$(".select2").select2({
+  	theme: "bootstrap",
+  	placeholder: "點擊選擇石材"
+	});	
+})

@@ -1,0 +1,24 @@
+<!--header-->
+<div class="header agileits w3layouts" id="home">
+  <div class="w3layouts">
+    <div class="head agileits">
+      <%= render "common/nav" %>
+    </div>
+  </div>
+  <% if current_page?(root_path) %>
+	  <div class="container w3layouts">
+	    <div class="banner agileits w3layouts">
+	      <section class="wrapper wow agileits w3layouts fadeInUp animated" data-wow-delay=".5s">
+	        <h2 >蟄伏億萬年的塵封，只願為您獻出風華</h2>
+	        <h3 class="sentence agileits w3layouts">專業呈現
+	          <div class="popEffect agileits w3layouts">
+	            <span> </span>
+	            <span> 石材買賣</span>
+	            <span> 工程施作</span>
+	          </div>
+	        </h3>
+	      </section>
+	    </div>
+	  </div>
+  <% end %>
+</div>
