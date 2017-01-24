@@ -12,7 +12,7 @@ class Admin::ExamplesController < AdminController
 		if Example.create(example_params)
 			link_stones
 			flash[:success] = "新增成功。"
-			redirect_to admin_examples_path(@example)
+			redirect_to admin_examples_path
 		else
 			render :new
 		end
@@ -25,7 +25,7 @@ class Admin::ExamplesController < AdminController
 		if @example.update(example_params)
 			link_stones
 			flash[:success] = "更新成功。"
-			redirect_to admin_examples_path(@example)
+			redirect_to admin_examples_path
 		else
 			render :edit
 		end

@@ -4,5 +4,13 @@ class Stone < ApplicationRecord
 	has_many :technique_and_stones, dependent: :destroy
 	has_many :techniques, through: :technique_and_stones
 
-	validates :name, presence: true
+	validates :zh_name, presence: true
+
+	def full_name
+		if en_name.present?
+			return "#{zh_name} #{en_name}"
+		else
+			return zh_name
+		end
+	end
 end
