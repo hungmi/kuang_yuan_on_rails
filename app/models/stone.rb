@@ -6,11 +6,5 @@ class Stone < ApplicationRecord
 
 	validates :zh_name, presence: true
 
-	def full_name
-		if en_name.present?
-			return "#{zh_name} #{en_name}"
-		else
-			return zh_name
-		end
-	end
+	include Expressive
 end

@@ -1,44 +1,37 @@
 <div class="single agileits w3layouts">
-  <div class="container">
-    
-    <div class="single-top">
-            
-            <div class="top-stone">
-                <h3>木化石 Moca Cream</h3>
+    <div class="container">
+        <div class="top-stone">
+            <h3><%= @example.full_name %></h3>
             </div>
-            
+        
+        <div class="single-top">
             <div class="col-md-9">
-                <div class="col-md-12 team-grid wow fadeInLeft animated" data-wow-delay=".5s">
-           <div class=" col-1 ">
-            <img class="img-responsive gray" src="images/stone/DSC_0445.jpg" alt="">
-           </div>
-        </div>
-                
-        <div class="lone-line col-md-9">
-            <ul class="grid-blog agileits w3layouts">
-            <p class="wow fadeInLeft agileits w3layouts animated" data-wow-delay=".5s">石材描述
-                            <span>石材特色：米黃Yellow</span>
-                            <span>石材產地：台灣 台中</span>
-                            <span>適用場所：客廳、會議廳、書房</span>
-                        </p>
-                        </ul>
+                <div class="col-md-12">
+                  <img class="img-responsive wow fadeInUp agileits w3layouts animated" data-wow-delay=".5s" src="<%= asset_url('ex-1.jpg') %>" alt="" />
+                  <img class="img-responsive wow fadeInUp agileits w3layouts animated" data-wow-delay=".5s" src="<%= asset_url('ex-3.jpg') %>" alt="" />
+                  <img class="img-responsive wow fadeInUp agileits w3layouts animated" data-wow-delay=".5s" src="<%= asset_url('ex-4.jpg') %>" alt="" />
+                </div>
+                <div class="lone-line col-md-12 wow fadeInLeft animated" data-wow-delay=".5s">
+                  <ul class="grid-blog agileits w3layouts">
+                    <li><span><i class="glyphicon agileits w3layouts glyphicon-time"></i><%= @example.date_and_time %></span></li>
+                    <li><a href="#"><i class="glyphicon agileits w3layouts glyphicon-user"> </i><%= @example.designer %></a></li>
+                    <div class="clearfix">　</div>
+                    <%= simple_format @example.description %>
+                  </ul>
                 </div>
             </div>
             
             <div class="col-md-3">
-                <div class="col-1-at">
-                  <h5><a href="single.html">工程實績 Gallery</a></h5>
-                        </div>
-                <img class="img-responsive wow fadeInUp agileits w3layouts animated" data-wow-delay=".5s" src="images/ex-1.jpg" alt="" />
-                <img class="img-responsive wow fadeInUp agileits w3layouts animated" data-wow-delay=".5s" src="images/ex-3.jpg" alt="" />
-                <img class="img-responsive wow fadeInUp agileits w3layouts animated" data-wow-delay=".5s" src="images/ex-4.jpg" alt="" />
-                <img class="img-responsive wow fadeInUp agileits w3layouts animated" data-wow-delay=".5s" src="images/ex-1.jpg" alt="" />
-                <img class="img-responsive wow fadeInUp agileits w3layouts animated" data-wow-delay=".5s" src="images/ex-3.jpg" alt="" />
-                <img class="img-responsive wow fadeInUp agileits w3layouts animated" data-wow-delay=".5s" src="images/ex-4.jpg" alt="" />
-                
+              <% @example.stones.each do |stone| %>
+                <div class="team-grid wow fadeInRight animated" data-wow-delay=".5s">
+                  <img class="img-responsive agileits w3layouts gray" src="<%= asset_url('stone/DSC_0445.jpg') %>" alt="">
+                  <div class="col-1-at">
+                    <h5><%= link_to stone.full_name, stone %></h5>
+                  </div>
+                </div>
+              <% end %>
             </div>
-      
-    </div>
-  
-  </div>    
+        </div>
+    
+    </div>      
 </div>

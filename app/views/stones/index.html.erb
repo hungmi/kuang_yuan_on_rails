@@ -14,7 +14,7 @@
               <p>石材產地：<%= stone.origin %></p>
               <p>實際案例：
               	<% stone.examples.each do |ex| %>
-              		<%= link_to ex.name, ex %>
+              		<%= link_to ex.full_name, ex %>
               	<% end %>
               </p>
 						</div>

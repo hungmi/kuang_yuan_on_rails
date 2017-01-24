@@ -26,12 +26,14 @@ ActiveRecord::Schema.define(version: 20170124071244) do
   end
 
   create_table "examples", force: :cascade do |t|
-    t.string   "name"
+    t.string   "zh_name"
+    t.string   "en_name"
+    t.string   "date_and_time"
     t.string   "place"
     t.string   "designer"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "stones", force: :cascade do |t|
@@ -56,7 +58,8 @@ ActiveRecord::Schema.define(version: 20170124071244) do
   end
 
   create_table "techniques", force: :cascade do |t|
-    t.string   "name"
+    t.string   "zh_name"
+    t.string   "en_name"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
