@@ -7,7 +7,11 @@
       <div class="col-md-9">
         <div class="col-md-12 team-grid wow fadeInLeft animated" data-wow-delay=".5s">
           <div class="col-1">
-            <img class="img-responsive gray" src="<%= asset_url('stone/DSC_0445.jpg') %>" alt="">
+            <% if @stone.attachments.present? %> 
+              <% @stone.attachments.each do |attachment| %>
+                <%= image_tag attachment.image.url, class: "img-responsive gray" %>
+              <% end %>
+            <% end %>
           </div>
         </div>
         <div class="lone-line col-md-9">
@@ -30,7 +34,7 @@
         <% if @stone.examples.present? %>
           <% @stone.examples.each do |ex| %>
             <%= link_to ex do %>
-              <img class="img-responsive wow fadeInUp agileits w3layouts animated" data-wow-delay=".5s" src="<%= asset_url('ex-1.jpg') %>" alt="" />
+              <%= image_tag (ex.attachments.cover.try(:first).try(:image).try(:url) || "default.svg"), class: "img-responsive wow fadeInUp agileits w3layouts animated", "data-wow-delay": ".5s" %>
             <% end %>
           <% end %>
         <% else %>

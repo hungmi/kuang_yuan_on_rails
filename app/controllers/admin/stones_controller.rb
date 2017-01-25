@@ -10,8 +10,13 @@ class Admin::StonesController < AdminController
 
 	def create
 		if Stone.create(stone_params)
+			if params[:images].present?
+				params[:images].each { |image| @stone.attachments.create({image: image}) }
+			else
+				flash[:warning] = "請記得上傳圖片。"	
+			end
 			flash[:success] = "新增成功。"
-			redirect_to admin_stones_path(@stone)
+			redirect_to admin_stones_path
 		else
 			render :new
 		end
@@ -22,8 +27,11 @@ class Admin::StonesController < AdminController
 
 	def update
 		if @stone.update(stone_params)
+			if params[:images].present?
+				params[:images].each { |image| @stone.attachments.create({image: image}) }
+			end
 			flash[:success] = "更新成功。"
-			redirect_to admin_stones_path(@stone)
+			redirect_to admin_stones_path
 		else
 			render :edit
 		end

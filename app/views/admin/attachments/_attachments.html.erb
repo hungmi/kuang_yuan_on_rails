@@ -1,0 +1,17 @@
+<div class="col-sm-4 col-md-3 text-center">
+	<% if attachment.image.present? %>
+		<%= image_tag (attachment.try(:image).try(:url) || "default.svg"), class: "img-responsive", style: "display: inline-block;" %>
+	<% end %>
+	<div class="text-center" style="margin-top: 5px;">
+		<%= link_to set_cover_admin_attachment_path(attachment), method: :post, class: "btn btn-default", style:"width: 40%;", disabled: attachment.cover? do %>
+			<% if attachment.cover? %>
+				目前封面 <i class="glyphicon glyphicon-ok"></i>
+			<% else %>
+				設為封面 <i class="glyphicon glyphicon-ok"></i>
+			<% end %>
+		<% end %>
+		<%= link_to admin_attachment_path(attachment), method: :delete, data: { confirm: "此動作無法復原，確定刪除圖片？" }, class: "btn btn-danger", style:"width: 40%;" do %>
+			刪除圖片 <i class="glyphicon glyphicon-remove"></i>
+		<% end %>
+	</div>
+</div>

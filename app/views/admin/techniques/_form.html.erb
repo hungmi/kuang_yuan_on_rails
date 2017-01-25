@@ -1,5 +1,15 @@
-<%= form_for ["admin", @technique] do |f| %>
+<%= form_for ["admin", @technique], html: { multipart: true } do |f| %>
 	<%= form_errors(@technique) %>
+	<% if @technique.attachments.present? %>
+		<div class="row">
+			<%= render partial: "admin/attachments/attachments", collection: @technique.attachments, as: :attachment %>
+		</div>
+		<hr>
+	<% end %>
+	<div class="form-group">
+		<label for="images[]">上傳圖片</label>
+		<%= file_field_tag "images[]", multiple: true %>
+	</div>
 	<div class="form-group">
 		<%= f.label :zh_name %>
 		<%= f.text_field :zh_name, class: "form-control" %>	

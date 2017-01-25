@@ -7,7 +7,11 @@
     <div class="single-top col-md-9 col-sm-12">
       <div class="col-sm-12 team-grid wow fadeInLeft animated" data-wow-delay=".5s">
         <div class="col-1">
-          <img class="img-responsive gray" src="<%= asset_url('method-1.jpg') %>" alt="">
+          <% if @technique.attachments.present? %>
+            <% @technique.attachments.each do |attachment| %>
+              <%= image_tag attachment.image.url, class: "img-responsive gray" %>
+            <% end %>
+          <% end %>
         </div>
       </div>
       <div class="lone-line col-sm-12 wow fadeInLeft animated" data-wow-delay=".5s">

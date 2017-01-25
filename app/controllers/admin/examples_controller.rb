@@ -11,7 +11,11 @@ class Admin::ExamplesController < AdminController
 	def create
 		@example = Example.new(example_params)
 		if @example.save
-			# link_stones
+			if params[:images].present?
+				params[:images].each { |image| @example.attachments.create({image: image}) }
+			else
+				flash[:warning] = "請記得上傳圖片。"	
+			end
 			flash[:success] = "新增成功。"
 			redirect_to admin_examples_path
 		else
@@ -24,7 +28,9 @@ class Admin::ExamplesController < AdminController
 
 	def update
 		if @example.update(example_params)
-			# link_stones
+			if params[:images].present?
+				params[:images].each { |image| @example.attachments.create({image: image}) }
+			end
 			flash[:success] = "更新成功。"
 			redirect_to admin_examples_path
 		else
@@ -47,6 +53,6 @@ class Admin::ExamplesController < AdminController
 	end
 
 	def example_params
-		params.require(:example).permit(:id, :zh_name, :en_name, :place, :designer, :description, :ad_status, stone_ids: [])
+		params.require(:example).permit(:id, :zh_name, :en_name, :date_and_time, :description, :ad_status, stone_ids: [])
 	end
 end

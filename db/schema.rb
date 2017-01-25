@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124071244) do
+ActiveRecord::Schema.define(version: 20170125080516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "image"
+    t.string   "imageable_type"
+    t.integer  "imageable_id"
+    t.boolean  "cover",          default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["imageable_type", "imageable_id"], name: "index_attachments_on_imageable_type_and_imageable_id", using: :btree
+  end
 
   create_table "example_and_stones", force: :cascade do |t|
     t.integer  "example_id"
@@ -29,8 +39,6 @@ ActiveRecord::Schema.define(version: 20170124071244) do
     t.string   "zh_name"
     t.string   "en_name"
     t.string   "date_and_time"
-    t.string   "place"
-    t.string   "designer"
     t.text     "description"
     t.integer  "ad_status",     default: 0
     t.datetime "created_at",                null: false

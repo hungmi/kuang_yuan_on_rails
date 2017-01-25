@@ -10,7 +10,7 @@
 				<div class="<%= i.even? ? 'event-grid' : '' %>">
 					<div class="wow <%= render_wrapper_direction(i) %> animated" data-wow-delay=".5s">
 						<%= link_to te do %>
-							<img src="<%= asset_url('pc.jpg') %>" class="img-responsive" alt="">
+							<%= image_tag (te.attachments.cover.try(:first).try(:image).try(:url) || "default.svg"), class: "img-responsive" %>
 						<% end %>
 						<div class="<%= render_content_direction(i) %>">
 							<div class="event-gr">

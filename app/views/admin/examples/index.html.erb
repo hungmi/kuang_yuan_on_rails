@@ -1,4 +1,7 @@
 <div class="container">
+	<% unless Example.ad_on.size >= 5 %>
+		<div class="alert alert-warning mt-1 mb-1">請至少設定 5 個精選案例，避免首頁顯示錯誤。</div>
+	<% end %>
 <h2>
 	案例列表
 	<%= link_to "新增", new_admin_example_path, class: "btn btn-success" %>
@@ -9,8 +12,7 @@
 		<tr>
 			<th>中文名稱</th>
 			<th>英文名稱</th>
-			<th>位置</th>
-			<th>設計師</th>
+			<th>時間</th>
 			<th style="width: 33%;">敘述</th>
 			<th></th>
 		</tr>

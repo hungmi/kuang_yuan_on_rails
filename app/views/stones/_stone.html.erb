@@ -1,7 +1,7 @@
 <div class="col-md-12 team-grid wow fadeInLeft animated" data-wow-delay=".5s">
 	<div class="team-1">
 		<div class="col-md-5 col-1 ">
-			<img class="img-responsive gray" src="<%= asset_url('stone/DSC_0445.jpg') %>" alt="">
+      <%= image_tag (stone.attachments.cover.try(:first).try(:image).try(:url) || "default.svg"), class: "img-responsive agileits w3layouts gray" %>
 		</div>
 		<div class="col-md-7 col-1-at">
 			<h5><%= link_to stone.full_name, stone %></a></h5>

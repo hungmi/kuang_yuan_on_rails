@@ -11,6 +11,11 @@ class Admin::TechniquesController < AdminController
 	def create
 		@technique = Technique.create(technique_params)
 		if @technique.save
+			if params[:images].present?
+				params[:images].each { |image| @technique.attachments.create({image: image}) }
+			else
+				flash[:warning] = "請記得上傳圖片。"	
+			end
 			flash[:success] = "新增成功。"
 			redirect_to admin_techniques_path
 		else
@@ -23,6 +28,9 @@ class Admin::TechniquesController < AdminController
 
 	def update
 		if @technique.update(technique_params)
+			if params[:images].present?
+				params[:images].each { |image| @technique.attachments.create({image: image}) }
+			end
 			flash[:success] = "更新成功。"
 			redirect_to admin_techniques_path
 		else

@@ -17,6 +17,11 @@ Rails.application.routes.draw do
     controller "ads" do
       post 'ads/toggle', as: "toggle_ads"
     end
+    resources :attachments, only: [:destroy] do
+      member do
+        post "set_cover"
+      end      
+    end
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

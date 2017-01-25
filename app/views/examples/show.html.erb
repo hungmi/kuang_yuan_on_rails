@@ -6,15 +6,16 @@
     
     <div class="single-top">
       <div class="col-md-9">
-        <div class="col-md-12">
-          <img class="img-responsive wow fadeInUp agileits w3layouts animated" data-wow-delay=".5s" src="<%= asset_url('ex-1.jpg') %>" alt="" />
-          <img class="img-responsive wow fadeInUp agileits w3layouts animated" data-wow-delay=".5s" src="<%= asset_url('ex-3.jpg') %>" alt="" />
-          <img class="img-responsive wow fadeInUp agileits w3layouts animated" data-wow-delay=".5s" src="<%= asset_url('ex-4.jpg') %>" alt="" />
-        </div>
+        <% if @example.attachments.present? %> 
+          <div class="col-md-12">
+            <% @example.attachments.each do |attachment| %>
+              <%= image_tag attachment.image.url, class: "img-responsive wow fadeInUp agileits w3layouts animated", "data-wow-delay": ".5s" %>
+            <% end %>
+          </div>
+        <% end %>
         <div class="lone-line col-md-12 wow fadeInLeft animated" data-wow-delay=".5s">
           <ul class="grid-blog agileits w3layouts">
             <li><span><i class="glyphicon agileits w3layouts glyphicon-time"></i><%= @example.date_and_time %></span></li>
-            <li><a href="#"><i class="glyphicon agileits w3layouts glyphicon-user"> </i><%= @example.designer %></a></li>
             <div class="clearfix">　</div>
             <%= simple_format @example.description %>
           </ul>
