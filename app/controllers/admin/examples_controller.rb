@@ -1,7 +1,7 @@
 class Admin::ExamplesController < AdminController
 	before_action :find_example, only: [:edit, :update, :destroy, :show]
 	def index
-		@examples = Example.all
+		@examples = Example.order(id: :desc).all
 	end
 
 	def new
@@ -9,8 +9,9 @@ class Admin::ExamplesController < AdminController
 	end
 
 	def create
-		if Example.create(example_params)
-			link_stones
+		@example = Example.new(example_params)
+		if @example.save
+			# link_stones
 			flash[:success] = "新增成功。"
 			redirect_to admin_examples_path
 		else
@@ -23,7 +24,7 @@ class Admin::ExamplesController < AdminController
 
 	def update
 		if @example.update(example_params)
-			link_stones
+			# link_stones
 			flash[:success] = "更新成功。"
 			redirect_to admin_examples_path
 		else
@@ -41,21 +42,11 @@ class Admin::ExamplesController < AdminController
 
 	private
 
-	def link_stones
-		if example_params[:stone_ids].present?
-			stone_ids = example_params[:stone_ids].reject(&:empty?)
-			begin
-				@example.stones << Stone.find(stone_ids)
-			rescue ActiveRecord::RecordNotUnique => e
-			end
-		end
-	end
-
 	def find_example
 		@example = Example.find(params[:id])
 	end
 
 	def example_params
-		params.require(:example).permit(:id, :name, :place, :designer, :description)
+		params.require(:example).permit(:id, :zh_name, :en_name, :place, :designer, :description, :ad_status, stone_ids: [])
 	end
 end

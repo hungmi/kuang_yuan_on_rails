@@ -1,9 +1,15 @@
 <tr>
-	<td><%= example.name %></td>
+	<td><%= example.zh_name %></td>
+	<td><%= example.en_name %></td>
 	<td><%= example.place %></td>
 	<td><%= example.designer %></td>
 	<td><%= simple_format example.description %></td>
 	<td style="white-space: nowrap;">
+		<% if example.ad_off? %>
+			<%= link_to "設為首頁精選", admin_toggle_ads_path(model: "Example", id: example.id), class: "btn btn-info btn-sm", method: :post %> |
+		<% else %>
+			<%= link_to "取消首頁精選", admin_toggle_ads_path(model: "Example", id: example.id), class: "btn btn-default btn-sm", method: :post %> |
+		<% end %>
 		<%= link_to "編輯", edit_admin_example_path(example), class: "btn btn-primary btn-sm" %> |
 		<%= link_to "刪除", admin_example_path(example), method: :delete, data: { confirm: "確定要刪除嗎？" }, class: "btn btn-danger btn-sm" %>
 	</td>

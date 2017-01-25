@@ -8,6 +8,27 @@ table.table {
   }
 }
 
+.event-gr > p {
+	word-break: break-word;
+}
+
+.no_content_div {
+	padding: 20px 10px;
+  background: #eee;
+  color: #555;
+}
+.sidebar-title-wrapper {
+	padding: 1.5em 0px;
+}
+.sidebar-title {
+  border-bottom: 2px solid #8ec21f;
+  padding-bottom: 20px;
+}
+
+ul.nav.navbar-nav li a.active {
+	color: #8ec21f;
+}
+
 .no_bg:before {
 	content: none !important;
 	width: 0px;

@@ -4,9 +4,8 @@ class CreateExamples < ActiveRecord::Migration[5.0]
       t.string :zh_name
       t.string :en_name
       t.string :date_and_time
-      t.string :place
-      t.string :designer
       t.text :description
+      t.integer :ad_status, default: 0
 
       t.timestamps
     end

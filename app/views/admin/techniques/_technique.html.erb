@@ -1,6 +1,7 @@
 <tr>
-	<td><%= technique.name %></td>
-	<td><%= simple_format technique.description %></td>
+	<td><%= technique.zh_name %></td>
+	<td><%= technique.en_name %></td>
+	<td style="width: 33%;"><%= simple_format technique.description %></td>
 	<td style="white-space: nowrap;">
 		<%= link_to "編輯", edit_admin_technique_path(technique), class: "btn btn-primary btn-sm" %> |
 		<%= link_to "刪除", admin_technique_path(technique), method: :delete, data: { confirm: "確定要刪除嗎？" }, class: "btn btn-danger btn-sm" %>

@@ -1,7 +1,7 @@
 class Admin::StonesController < AdminController
 	before_action :find_stone, only: [:edit, :update, :destroy, :show]
 	def index
-		@stones = Stone.all
+		@stones = Stone.order(id: :desc).all
 	end
 
 	def new
@@ -37,6 +37,6 @@ class Admin::StonesController < AdminController
 	end
 
 	def stone_params
-		params.require(:stone).permit(:id, :name, :origin, :feature, :description)
+		params.require(:stone).permit(:id, :zh_name, :en_name, :origin, :feature, :description, :ad_status)
 	end
 end

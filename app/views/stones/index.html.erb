@@ -2,27 +2,7 @@
 	<div class="container">			
 		<h3>石材型錄</h3>
 		<div class="team">
-      <% @stones.each do |stone| %>
-				<div class="col-md-12 team-grid wow fadeInLeft animated" data-wow-delay=".5s">
-					<div class="team-1">
-						<div class="col-md-5 col-1 ">
-							<img class="img-responsive gray" src="<%= asset_url('stone/DSC_0445.jpg') %>" alt="">
-						</div>
-						<div class="col-md-7 col-1-at">
-							<h5><%= link_to stone.full_name, stone %></a></h5>
-              <p>石材特色：<%= stone.feature %></p>
-              <p>石材產地：<%= stone.origin %></p>
-              <p>實際案例：
-              	<% stone.examples.each do |ex| %>
-              		<%= link_to ex.full_name, ex %>
-              	<% end %>
-              </p>
-						</div>
-						<div class="clearfix"> </div>
-				  </div>
-				</div>                 
-        <div class="clearfix">　</div>
-      <% end %>
+			<%= render @stones %>
 		</div>
 	</div>
 </div>

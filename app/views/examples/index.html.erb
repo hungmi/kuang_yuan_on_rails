@@ -15,7 +15,7 @@
 						<div class="<%= render_content_direction(i) %>">
 							<div class="event-gr">
 								<h4><%= link_to ex.full_name, ex %></h4>
-								<p><%= ex.description.truncate(100) %></p>
+								<p><%= ex.description.try(:truncate, 100) %></p>
 							</div>
 						</div>
 					</div>

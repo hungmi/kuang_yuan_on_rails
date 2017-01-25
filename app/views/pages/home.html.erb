@@ -71,167 +71,99 @@
           <!-- 精選石材 -->
           <div class="portfolio" id="gallery">
             <div class="portfolio-top wow fadeInDown animated" data-wow-delay=".5s">
+              <% @top_ad_stones.each do |top_ad_stone| %>
                 <div class="col-md-4 grid slideanim">
-                    <figure class="effect-jazz">
-                    <a href="#portfolioModal1">
-												<img src='<%= asset_url("stone/DSC_0445.jpg") %>' alt="img01" class="img-responsive"/>
-                        <figcaption>
-                            <h4> 凡爾賽 </h4>
-                            <p>Versailles Black</p>
-                        </figcaption>
-                        </a>						
-                    </figure>
+                  <figure class="effect-jazz">
+                    <%= link_to stone_path(top_ad_stone) do %>
+  										<img src='<%= asset_url("stone/DSC_0445.jpg") %>' alt="img01" class="img-responsive"/>
+                      <figcaption>
+                        <h4><%= top_ad_stone.zh_name %></h4>
+                        <p><%= top_ad_stone.en_name %></p>
+                      </figcaption>
+                    <% end %>
+                  </figure>
                 </div>
-                <div class="col-md-4 grid slideanim">
-                    <figure class="effect-jazz">
-                    <a href="#portfolioModal2">
-
-                        <img src='<%= asset_url("stone/DSC_0451.jpg") %>' alt="img25" class="img-responsive"/>
-                            <figcaption>
-                                <h4>花蝴蝶</h4>
-                                <p>Grey Butterfly</p>							
-                            </figcaption>	
-                            </a>						
-                    </figure>
-                </div>
-                <div class="col-md-4 grid slideanim">
-                    <figure class="effect-jazz">
-                    <a href="#portfolioModal3">
-
-                        <img src='<%= asset_url("stone/DSC_0465.jpg") %>' alt="img25" class="img-responsive"/>
-                            <figcaption>
-                                <h4>秋海棠</h4>
-                            <p>Grey Savana</p>							
-                            </figcaption>
-                        </a>						
-                    </figure>
-                </div>
-
-                <div class="clearfix"></div>
+              <% end %>
+              <div class="clearfix"></div>
             </div>
             <div class="portfolio-top wow fadeInUp animated" data-wow-delay=".5s">
-              <div class="col-md-3 grid grid-wi slideanim">
+              <% @bottom_ad_stones.each do |bottom_ad_stone| %>
+                <div class="col-md-3 grid grid-wi slideanim">
                   <figure class="effect-jazz">
-                  <a href="#portfolioModal4">
-
+                    <%= link_to stone_path(bottom_ad_stone) do %>
                       <img src='<%= asset_url("stone/DSC_0470.jpg") %>' alt="img25" class="img-responsive"/>
-                          <figcaption>
-                              <h4 class="effcet-text">夏沐漱石</h4>
-                      <p>Green Forest</p>							
-                          </figcaption>	
-                      </a>						
+                      <figcaption>
+                        <h4 class="effcet-text"><%= bottom_ad_stone.zh_name %></h4>
+                        <p><%= bottom_ad_stone.en_name %></p>
+                      </figcaption>					
+                    <% end %>
                   </figure>
-              </div>
+                </div>
+              <% end %>
               <div class="col-md-3 grid grid-wi slideanim">
-                  <figure class="effect-jazz">
-                  <a href="#portfolioModal5">
-
-                      <img src='<%= asset_url("stone/DSC_0477.jpg") %>' alt="img25" class="img-responsive"/>
-                          <figcaption>
-                              <h4 class="effcet-text">灰網石</h4>
-                          <p> Grey Lido</p>							
-                          </figcaption>
-                          </a>						
-                  </figure>
-              </div>
-              <div class="col-md-3 grid grid-wi slideanim">
-                  <figure class="effect-jazz">
-                  <a href="#portfolioModal6">
-                      <img src='<%= asset_url("stone/DSC_0479.jpg") %>' alt="img25" class="img-responsive"/>
-                          <figcaption>
-                              <h4 class="effcet-text">亞爵石</h4>
-                              <p>LimeStone</p>							
-                          </figcaption>
-                      </a>						
-                  </figure>
-              </div>
-              <div class="col-md-3 grid grid-wi slideanim">
-                  <figure class=" view-all">
+                <figure class=" view-all">
                   <a href="stone.html">
-                      <img src='<%= asset_url("background2.jpg") %>' alt="img25" class="img-responsive">
-                      </a>				
-                      
-                  </figure>
+                    <img src='<%= asset_url("background2.jpg") %>' alt="img25" class="img-responsive">
+                  </a>
+                </figure>
               </div>
               <div class="clearfix"></div>
             </div>
           </div>
 
-
-                <!---->	
-                <div class="event" id="events">
-                <div class="container">
-
+          <!---->	
+          <div class="event" id="events">
+            <div class="container">
             <div class="top-event">
-                <h3>精選案例</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              <h3>精選案例</h3>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
+            <% @examples.first(4).each_with_index do |ex, i| %>
+              <div class="<%= i.even? ? 'event-grid' : '' %>">
+                <div class="<%= render_wrapper_direction(i) %> wow animated" data-wow-delay=".5s">
+                  <%= link_to ex do %>
+                    <img src='<%= asset_url("pc.jpg") %>' class="img-responsive" alt="">
+                  <% end %>
+                  <div class="<%= render_content_direction(i) %>">
+                    <div class="event-gr">
+                      <h4>
+                        <%= link_to ex.full_name, ex %>
+                      </h4>
+                      <%= simple_format ex.description.try(:truncate, 100) %>
+                    </div>
+                  </div>
+                </div>
+                <% if i.odd? %>
+                  <div class="clearfix"></div>
+                <% end %>
+              </div>
+            <% end %>
+            
             <div class="event-grid ">
                 <div class="event-left wow fadeInLeft animated" data-wow-delay=".5s">
-                    <a href="single.html"><img src='<%= asset_url("pc.jpg") %>' class="img-responsive" alt=""></a>
-                    <div class="event-top">
-                        <div class="event-gr">
-                            <h4><a href="single.html">Contrary to popular belief</a> </h4>
-                            <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-                        </div>
+                  <%= link_to @examples.last do %>
+                    <img src='<%= asset_url("pc4.jpg") %>' class="img-responsive" alt="">
+                  <% end %>
+                  <div class="event-top">
+                    <div class="event-gr">
+                      <h4>
+                        <%= link_to @examples.last.full_name, @examples.last %>
+                      </h4>
+                      <%= simple_format @examples.last.description.try(:truncate, 100) %>
                     </div>
-                </div>
-                
-                <div class="event-right wow fadeInRight animated" data-wow-delay=".5s">
-                    <a href="single.html"><img src='<%= asset_url("pc1.jpg") %>' class="img-responsive" alt=""></a>
-                    <div class="event-top event-top1">
-                        <div class="event-gr">
-                            <h4><a href="single.html">There are many variations</a> </h4>
-                            <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-                        </div>                                     
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="event-grid">
-                <div class="event-left event-left1 wow fadeInRight animated" data-wow-delay=".5s">
-                    <a href="single.html"><img src='<%= asset_url("pc2.jpg") %>' class="img-responsive" alt=""></a>
-                    <div class="clearfix"></div>
-                    <div class="event-top event-t">
-                        <div class="event-gr">
-                            <h4><a href="single.html">There are many variations </a></h4>
-                            <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-right event-right1 wow fadeInLeft animated" data-wow-delay=".5s">
-                    <a href="single.html"><img src='<%= asset_url("pc3.jpg") %>' class="img-responsive" alt=""></a>
-                    <div class="clearfix"></div>
-                    <div class="event-top event-t1">
-                        <div class="event-gr">
-                            <h4><a href="single.html">Contrary to popular belief </a></h4>
-                            <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-                        </div>                                     
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="event-grid ">
-                <div class="event-left wow fadeInLeft animated" data-wow-delay=".5s">
-                    <a href="single.html"><img src='<%= asset_url("pc4.jpg") %>' class="img-responsive" alt=""></a>
-                    <div class="event-top">
-                        <div class="event-gr">
-                            <h4><a href="single.html">There are many variations </a></h4>
-                            <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-                        </div>
-                    </div>
+                  </div>
                 </div>
                 <div class="event-right wow fadeInRight animated" data-wow-delay=".5s">
-                    <a href="example.html">
-                        <img src='<%= asset_url("background2.jpg") %>' class="img-responsive" alt="">
-                    </a>
-                    <div class="event-top event-top1">
-                        <div class="event-gr">
-                            <h4><a href="">歡迎與我們合作</a></h4>
-                            <p>Cooperate with us</p>
-                        </div>                                     
+                  <%= link_to examples_path do %>
+                    <img src='<%= asset_url("background2.jpg") %>' class="img-responsive" alt="">
+                  <% end %>
+                  <div class="event-top event-top1">
+                    <div class="event-gr">
+                      <h4><a href="/#contact">歡迎與我們合作</a></h4>
+                      <p>Cooperate with us</p>
                     </div>
+                  </div>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -241,60 +173,52 @@
         </div>
         <!-- contact- -->
         <div class="contact" id="contact">
-                        <div class="col-md-6 map wow fadeInLeft animated " data-wow-delay=".5s">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7285.696491347937!2d120.64408062900411!3d24.07164803225892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693b9244512367%3A0x9b4e13b17d89a533!2zNDE05Y-w5Lit5biC54OP5pel5Y2A55Kw5Lit6Lev5YWr5q61ODk26Jmf!5e0!3m2!1szh-TW!2stw!4v1484211638115" ></iframe>
-                        </div>
-                    <div class="col-md-6 contact-form wow agileits w3layouts fadeInRight animated" data-wow-delay=".5s">
-                        <h3>聯絡我們</h3>
-                    <div class="col-md-6 agileits w3layouts contact-top">
-                        <form>				
-                                <input type="text" placeholder="姓名" required="" >								
-                                <input type="text" placeholder="Email" required="" >
-                            
-                                <textarea placeholder="內文" required=""></textarea>	
-                            
-                            
-                                <label class="hvr-rectangle-out agileits w3layouts">
-                                    <input type="submit" value="送出" >
-                                </label>		
-                        </form>						
-                    </div>
-
-                        <div class="col-md-6 agileits w3layouts contact-left">
-
-
-                        <div class="address agileits w3layouts">
-                        <div class=" address-grid agileits w3layouts">
-                                <i class="glyphicon agileits w3layouts glyphicon-map-marker"></i>
-                                <div class="address1 agileits w3layouts">
-                                    <h6>地址</h6>
-                                    <p>台中市烏日區環中路八段896號</p>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                            <div class=" agileits w3layouts address-grid ">
-                                <i class="glyphicon agileits w3layouts glyphicon-phone"></i>
-                                <div class="address1 agileits w3layouts">
-                                <h6>電話</h6>
-                                    <p> 04 2334-5333</p>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                            <div class=" agileits w3layouts address-grid ">
-                                <i class="glyphicon agileits w3layouts glyphicon-envelope"></i>
-                                <div class="address1 agileits w3layouts">
-                                <h6>Email:</h6>
-                                    <p><a href="mailto:info@example.com">kuangyuanstone@gmail.com</a></p>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                    </div>
-            <div class="clearfix"></div>
-
+          <div class="col-md-6 map wow fadeInLeft animated " data-wow-delay=".5s">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7285.696491347937!2d120.64408062900411!3d24.07164803225892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693b9244512367%3A0x9b4e13b17d89a533!2zNDE05Y-w5Lit5biC54OP5pel5Y2A55Kw5Lit6Lev5YWr5q61ODk26Jmf!5e0!3m2!1szh-TW!2stw!4v1484211638115" ></iframe>
+          </div>
+          <div class="col-md-6 contact-form wow agileits w3layouts fadeInRight animated" data-wow-delay=".5s">
+            <h3>聯絡我們</h3>
+          <div class="col-md-6 agileits w3layouts contact-top">
+            <form>
+              <input type="text" placeholder="姓名" required="" >								
+              <input type="text" placeholder="Email" required="" >
+              <textarea placeholder="內文" required=""></textarea>	
+              <label class="hvr-rectangle-out agileits w3layouts">
+                <input type="submit" value="送出" >
+              </label>		
+            </form>						
+          </div>
+          <div class="col-md-6 agileits w3layouts contact-left">
+            <div class="address agileits w3layouts">
+              <div class=" address-grid agileits w3layouts">
+                <i class="glyphicon agileits w3layouts glyphicon-map-marker"></i>
+                <div class="address1 agileits w3layouts">
+                  <h6>地址</h6>
+                  <p>台中市烏日區環中路八段896號</p>
+                </div>
+                <div class="clearfix"> </div>
+              </div>
+              <div class=" agileits w3layouts address-grid ">
+                <i class="glyphicon agileits w3layouts glyphicon-phone"></i>
+                <div class="address1 agileits w3layouts">
+                  <h6>電話</h6>
+                  <p> 04 2334-5333</p>
+                </div>
+                <div class="clearfix"> </div>
+              </div>
+              <div class=" agileits w3layouts address-grid ">
+                <i class="glyphicon agileits w3layouts glyphicon-envelope"></i>
+                <div class="address1 agileits w3layouts">
+                  <h6>Email:</h6>
+                  <p><a href="mailto:info@example.com">kuangyuanstone@gmail.com</a></p>
+                </div>
+                <div class="clearfix"> </div>
+              </div>
             </div>
             <div class="clearfix"></div>
+          </div>
+          <div class="clearfix"></div>
         </div>
-
 
     </div>
     <!--//content-->

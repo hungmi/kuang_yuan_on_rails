@@ -1,0 +1,22 @@
+<div class="col-md-12 team-grid wow fadeInLeft animated" data-wow-delay=".5s">
+	<div class="team-1">
+		<div class="col-md-5 col-1 ">
+			<img class="img-responsive gray" src="<%= asset_url('stone/DSC_0445.jpg') %>" alt="">
+		</div>
+		<div class="col-md-7 col-1-at">
+			<h5><%= link_to stone.full_name, stone %></a></h5>
+      <p>特色：<%= stone.feature %></p>
+      <p>尺寸：<%= stone.size %></p>
+      <p>產地：<%= stone.origin %></p>
+      <p>編號：<%= stone.number %></p>
+      <p>適用場所：<%= stone.good_place %></p>
+      <p>實際案例：
+      	<% stone.examples.each do |ex| %>
+      		<%= link_to ex.full_name, ex %>
+      	<% end %>
+      </p>
+		</div>
+		<div class="clearfix"> </div>
+  </div>
+</div>                 
+<div class="clearfix">　</div>

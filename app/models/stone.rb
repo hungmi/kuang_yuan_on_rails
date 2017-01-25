@@ -7,4 +7,6 @@ class Stone < ApplicationRecord
 	validates :zh_name, presence: true
 
 	include Expressive
+
+	enum ad_status: { ad_off: 0, ad_on: 1 }
 end

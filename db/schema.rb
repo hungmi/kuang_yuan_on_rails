@@ -32,19 +32,23 @@ ActiveRecord::Schema.define(version: 20170124071244) do
     t.string   "place"
     t.string   "designer"
     t.text     "description"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "ad_status",     default: 0
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "stones", force: :cascade do |t|
     t.string   "zh_name"
     t.string   "en_name"
     t.string   "origin"
+    t.string   "number"
+    t.string   "size"
     t.string   "feature"
     t.string   "good_place"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "ad_status",   default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "technique_and_stones", force: :cascade do |t|
