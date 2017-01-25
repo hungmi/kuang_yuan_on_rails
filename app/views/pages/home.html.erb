@@ -176,15 +176,15 @@
     <div class="col-md-6 contact-form wow agileits w3layouts fadeInRight animated" data-wow-delay=".5s">
       <h3>聯絡我們</h3>
     <div class="col-md-6 agileits w3layouts contact-top">
-      <form>
-        <input type="text" placeholder="姓名" required="" name="name">								
-        <input type="text" placeholder="LINE、微信、Skype、Email 皆可" required="" name="email">
+      <%= form_tag "/inquire" do %>
+        <input type="text" placeholder="姓名" required name="name">								
+        <input type="text" placeholder="LINE、微信、Skype、Email 皆可" required name="contact">
         <input type="text" placeholder="方便聯絡時間" name="availability">
-        <textarea placeholder="施工區域類型：如「外牆」、「內牆」、「地面」、「電視牆」、「檯面」、「浴室」等等；                施工區域面積：如「120平方公尺」、「45坪」等等" required=""></textarea>	
+        <textarea placeholder="施工區域類型：如「外牆」、「內牆」、「地面」、「電視牆」、「檯面」、「浴室」等等；                施工區域面積：如「120平方公尺」、「45坪」等等" name="content"></textarea>	
         <label class="hvr-rectangle-out agileits w3layouts">
           <input type="submit" value="送出" >
-        </label>		
-      </form>						
+        </label>
+      <% end %>				
     </div>
     <div class="col-md-6 agileits w3layouts contact-left">
       <div class="address agileits w3layouts">

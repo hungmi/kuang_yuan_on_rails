@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :examples, only: [:show, :index]
   resources :techniques, only: [:show, :index]
 
+  post "/inquire", to: "mails#inquire"
+
   namespace "admin" do
   	resources :stones
   	resources :examples
