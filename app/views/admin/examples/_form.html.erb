@@ -31,6 +31,6 @@
 		<%= f.collection_select :stone_ids, Stone.all, :id, :zh_name, {}, class: "form-control select2",  multiple: "multiple" %>
 	</div>
 	<label class="hvr-rectangle-out agileits w3layouts">
-		<%= f.submit "儲存" %>
+		<%= f.submit "儲存", data: { disable_with: "資料上傳中..." } %>
 	</label>
 <% end %>

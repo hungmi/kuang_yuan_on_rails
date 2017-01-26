@@ -49,6 +49,16 @@ label.hvr-rectangle-out {
 	}
 }
 
+.devise-form-wrapper {
+	padding: 30px 30%;
+}
+
+@media(max-width:767px){
+	.devise-form-wrapper {
+		padding: 30px;
+	}
+}
+
 @media(max-width:375px){
 	.map iframe {
 		min-height: 250px;
