@@ -38,7 +38,7 @@ class Admin::StonesController < AdminController
 	end
 
 	def destroy
-		if @example.destroy
+		if @stone.destroy
 			flash[:success] = "已刪除。"
 			redirect_to admin_stones_path
 		end

@@ -5,6 +5,7 @@ class UserMailer < ApplicationMailer
 		@availability = availability
 		@content = content
 		# mail(to: "kuangyuanstone@gmail.com", subject: '網站諮詢')
-		mail(to: "hungmihungmi@gmail.com", subject: '網站諮詢')
+		# mail(to: "hungmihungmi@gmail.com", subject: '網站諮詢')
+		mail(to: ENV["COMPANY_MAIL"], subject: '網站諮詢')
 	end
 end
