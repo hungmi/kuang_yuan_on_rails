@@ -46,6 +46,11 @@ server '13.112.153.40', user: 'deploy', roles: %w{web app db}
 #    forward_agent: false,
 #    auth_methods: %w(password)
 #  }
+set :ssh_options, {
+  keys: %w(/Users/hungmi/.ssh/kuangyuanstone.pem),
+  forward_agent: false,
+  auth_methods: %w(publickey)
+}
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
