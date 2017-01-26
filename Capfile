@@ -33,3 +33,4 @@ require 'capistrano/rails/migrations' # for running migrations
 require 'capistrano/puma'
 
 # require "whenever/capistrano"
+require 'capistrano/sidekiq'
