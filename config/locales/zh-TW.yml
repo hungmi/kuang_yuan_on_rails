@@ -1,5 +1,27 @@
 zh-TW:
   activerecord:
+    attributes:
+      stone:
+        zh_name: 中文名稱
+        en_name: 英文名稱
+        feature: 石材特色
+        origin: 石材產地
+        number: 石材編號
+        size: 石材尺寸
+        good_place: 適用場所
+        description: 石材描述
+        stone_ids: 相關石材
+      example:
+        zh_name: 中文名稱
+        en_name: 英文名稱
+        date_and_time: 完成日期或是製作時間長短
+        description: 案例描述
+        stone_ids: 相關石材
+      technique:
+        zh_name: 中文名稱
+        en_name: 英文名稱
+        description: 工法描述
+        stone_ids: 相關石材
     errors:
       models:
         admin:

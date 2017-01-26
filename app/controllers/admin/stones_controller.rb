@@ -52,6 +52,6 @@ class Admin::StonesController < AdminController
 	end
 
 	def stone_params
-		params.require(:stone).permit(:id, :zh_name, :en_name, :origin, :feature, :description, :ad_status)
+		params.require(:stone).permit(:id, :zh_name, :en_name, :origin, :size, :number, :good_place, :feature, :description, :ad_status)
 	end
 end
