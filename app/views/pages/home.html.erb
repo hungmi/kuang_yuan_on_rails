@@ -89,7 +89,7 @@
           <div class="col-md-3 grid grid-wi slideanim">
             <figure class="effect-jazz">
               <%= link_to stone_path(bottom_ad_stone) do %>
-                <img src='<%= asset_url("stone/DSC_0470.jpg") %>' alt="img25" class="img-responsive"/>
+                <%= image_tag (bottom_ad_stone.attachments.cover.try(:first).try(:image).try(:url) || "default.svg"), class: "img-responsive" %>
                 <figcaption>
                   <h4 class="effcet-text"><%= bottom_ad_stone.zh_name %></h4>
                   <p><%= bottom_ad_stone.en_name %></p>
@@ -141,7 +141,7 @@
         <div class="event-grid ">
           <div class="event-left wow fadeInLeft animated" data-wow-delay=".5s">
             <%= link_to @ad_examples.last do %>
-              <img src='<%= asset_url("pc4.jpg") %>' class="img-responsive" alt="">
+              <%= image_tag (@ad_examples.last.attachments.cover.try(:first).try(:image).try(:url) || "default.svg"), class: "img-responsive" %>
             <% end %>
             <div class="event-top">
               <div class="event-gr">
