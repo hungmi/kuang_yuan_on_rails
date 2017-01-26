@@ -15,5 +15,6 @@ module KuangYuanOnRails
     	Devise::SessionsController.layout "devise"
     end
     config.i18n.default_locale = "zh-TW"
+    config.active_job.queue_adapter = :sidekiq
   end
 end

@@ -5,7 +5,7 @@ class MailsController < ActionController::Base
 			params[:contact],
 			params[:availability],
 			params[:content]
-		).deliver_now
+		).deliver_later
 		redirect_to root_path
 	end
 end

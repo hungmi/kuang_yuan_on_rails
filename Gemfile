@@ -64,3 +64,4 @@ gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 gem "figaro"
 gem "devise"
 gem 'devise-i18n'
+gem "sidekiq"
