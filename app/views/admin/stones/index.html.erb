@@ -1,7 +1,6 @@
-<div class="container">
-	<% unless Stone.ad_on.size >= 6 %>
-		<div class="alert alert-warning mt-1 mb-1">請至少設定 6 個精選石材，避免首頁顯示錯誤。</div>
-	<% end %>
+<% unless Stone.ad_on.size >= 6 %>
+	<div class="alert alert-warning mt-1 mb-1">請至少設定 6 個精選石材，避免首頁顯示錯誤。</div>
+<% end %>
 <h2>
 	石材列表
 	<%= link_to "新增", new_admin_stone_path, class: "btn btn-success" %>
@@ -22,5 +21,4 @@
 		<%= render @stones %>
 	</tbody>
 </table>
-</div>
 </div>

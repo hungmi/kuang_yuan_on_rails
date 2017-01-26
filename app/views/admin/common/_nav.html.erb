@@ -19,6 +19,11 @@
       <li><a href="/admin/stones" class="agileits w3layouts"><span data-hover="Stone">管理石材</span></a></li>
       <li><a href="/admin/examples" class="agileits w3layouts"><span data-hover="Case">管理案例</span></a></li>
       <li><a href="/admin/techniques" class="agileits w3layouts"><span data-hover="Technique">管理工法</span></a></li>
+      <li>
+        <%= link_to destroy_admin_session_path, class: "agileits w3layouts", method: :delete do %>
+          <span data-hover="SignOut">登出</span>
+        <% end %>
+      </li>
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>

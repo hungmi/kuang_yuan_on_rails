@@ -1,0 +1,10 @@
+zh-TW:
+  activerecord:
+    errors:
+      models:
+        admin:
+          attributes:
+            email:
+              taken: ：此 %{attribute} 已經註冊過。
+            password_confirmation:
+              confirmation: ：兩次密碼輸入不一致。

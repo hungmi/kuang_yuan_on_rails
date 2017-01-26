@@ -1,7 +1,6 @@
-<div class="container">
-	<% unless Example.ad_on.size >= 5 %>
-		<div class="alert alert-warning mt-1 mb-1">請至少設定 5 個精選案例，避免首頁顯示錯誤。</div>
-	<% end %>
+<% unless Example.ad_on.size >= 5 %>
+	<div class="alert alert-warning mt-1 mb-1">請至少設定 5 個精選案例，避免首頁顯示錯誤。</div>
+<% end %>
 <h2>
 	案例列表
 	<%= link_to "新增", new_admin_example_path, class: "btn btn-success" %>
@@ -21,5 +20,4 @@
 		<%= render @examples %>
 	</tbody>
 </table>
-</div>
 </div>
