@@ -71,3 +71,7 @@ label.hvr-rectangle-out {
 		margin-left: 15px;
 	}
 }
+
+label.required:after{
+	content:"*"
+}

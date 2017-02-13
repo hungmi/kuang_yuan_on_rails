@@ -24,6 +24,18 @@ zh-TW:
         stone_ids: 相關石材
     errors:
       models:
+        example:
+          attributes:
+            zh_name:
+              blank: "不可空白。"
+        technique:
+          attributes:
+            zh_name:
+              blank: "不可空白。"
+        stone:
+          attributes:
+            zh_name:
+              blank: "不可空白。"
         admin:
           attributes:
             email:

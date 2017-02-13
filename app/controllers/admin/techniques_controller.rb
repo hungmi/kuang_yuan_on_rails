@@ -9,7 +9,7 @@ class Admin::TechniquesController < AdminController
 	end
 
 	def create
-		@technique = Technique.create(technique_params)
+		@technique = Technique.new(technique_params)
 		if @technique.save
 			if params[:images].present?
 				params[:images].each { |image| @technique.attachments.create({image: image}) }

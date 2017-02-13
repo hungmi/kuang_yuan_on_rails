@@ -9,7 +9,8 @@ class Admin::StonesController < AdminController
 	end
 
 	def create
-		if @stone = Stone.create(stone_params)
+		@stone = Stone.new(stone_params)
+		if @stone.save
 			if params[:images].present?
 				params[:images].each { |image| @stone.attachments.create({image: image}) }
 			else
