@@ -1,0 +1,9 @@
+<tr>
+	<td><span class="glyphicon agileits w3layouts <%= tabs_ttile.icon %>" aria-hidden="true"></span></td>
+	<td><%= tabs_ttile.title %></td>
+	<td style="width: 40%;"><%= simple_format tabs_ttile.description %></td>
+	<td><%= tabs_ttile.priority %></td>
+	<td style="white-space: nowrap;">
+		<%= link_to "編輯", edit_admin_tabs_title_path(tabs_ttile), class: "btn btn-primary btn-sm" %> 
+	</td>
+</tr>

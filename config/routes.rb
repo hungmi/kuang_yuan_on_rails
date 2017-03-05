@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do 
 	root 'pages#home'
   
   # controller "pages" do
@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post "/inquire", to: "mails#inquire"
 
   namespace "admin" do
+    resources :tabs, only: [:index, :edit, :update]
+    resources :tabs_titles, only: [:index, :edit, :update]
   	resources :stones
   	resources :examples
   	resources :techniques

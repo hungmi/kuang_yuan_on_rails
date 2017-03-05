@@ -1,0 +1,14 @@
+<%= form_for ["admin", @tabs_title], html: { multipart: true } do |f| %>
+	<%= form_errors(@tabs_title) %>
+	<div class="form-group">
+		<%= f.label :title, class: "required" %>
+		<%= f.text_field :title, class: "form-control", required: true %>	
+	</div>
+	<div class="form-group">
+		<%= f.label :description %>
+		<%= f.text_area :description, class: "form-control", rows: 7 %>
+	</div>
+	<label class="hvr-rectangle-out agileits w3layouts">
+		<%= f.submit "儲存", data: { disable_with: "資料上傳中..." } %>
+	</label>
+<% end %>

@@ -1,6 +1,14 @@
 zh-TW:
   activerecord:
     attributes:
+      tabs_title:
+        title: 歡迎標題
+        description: 敘述
+      tab:
+        icon: 顯示圖標
+        title: 標題文字
+        description: 內容
+        priority: 顯示順序
       stone:
         zh_name: 中文名稱
         en_name: 英文名稱
@@ -24,6 +32,14 @@ zh-TW:
         stone_ids: 相關石材
     errors:
       models:
+        tabs_title:
+          attributes:
+            title:
+              blank: "不可空白。" 
+        tab:
+          attributes:
+            title:
+              blank: "不可空白。"
         example:
           attributes:
             zh_name:

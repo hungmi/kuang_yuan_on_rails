@@ -1,0 +1,25 @@
+<h2>
+	首頁列表
+</h2>
+<div class="table-responsive">
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>歡迎標題</th>
+			<th>敘述</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% if @tabs_title.present? %>
+			<tr>
+				<td><%= @tabs_title.title %></td>
+				<td style="width: 40%;"><%= simple_format @tabs_title.description %></td>
+				<td style="white-space: nowrap;">
+					<%= link_to "編輯", edit_admin_tabs_title_path(@tabs_title), class: "btn btn-primary btn-sm" %> 
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+</div>
