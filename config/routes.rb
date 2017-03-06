@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post "/inquire", to: "mails#inquire"
 
   namespace "admin" do
+    get "/", to: redirect('/admin/stones')
     resources :tabs, only: [:index, :edit, :update]
     resources :tabs_titles, only: [:index, :edit, :update]
   	resources :stones
