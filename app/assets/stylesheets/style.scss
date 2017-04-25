@@ -554,7 +554,8 @@ figure.effect-jazz a {
     /*-aits-*/
     top: 3em;
     background-color: #fff;
-    width: 95%;
+    // width: 95%;
+    width: 75%;
     padding: 1em;
 }
 .event-top1 {
@@ -592,7 +593,8 @@ figure.effect-jazz a {
 }
 .event-t {
     left: 0;
-    width: 62%;
+    // width: 62%;
+    width: 44%;
 }
 .event-right1{
 	width:48%;
@@ -603,7 +605,7 @@ figure.effect-jazz a {
 }
 .event-t1{
 	right: 0;
-    width: 62%;
+    width: 44%;
     /*--Wthree--*/
     /*-agile-*/
 }
@@ -1906,4 +1908,8 @@ ul.nav.navbar-nav li a {
 .md-word {
   color: #8ec21f;
   text-align: center;
+}
+
+.admin-stone-table thead td {
+	min-width: 100px;
 }
