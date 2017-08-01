@@ -13,7 +13,7 @@
 						<div class="<%= render_content_direction(i) %>">
 							<div class="event-gr">
 								<h4><%= link_to te.full_name, te %></h4>
-								<p><%= te.description.try(:truncate, 100) %></p>
+								<p><%= truncate(te.description.to_s, length: 48, omission: "") %></p>
 							</div>
 						</div>
 					</div>
