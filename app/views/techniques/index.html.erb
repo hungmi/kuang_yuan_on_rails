@@ -13,7 +13,12 @@
 						<div class="<%= render_content_direction(i) %>">
 							<div class="event-gr">
 								<h4><%= link_to te.full_name, te %></h4>
-								<p><%= truncate(te.description.to_s, length: 48, omission: "") %></p>
+								<p><%= truncate(te.description.to_s, length: 49) %></p>
+								<% if te.description.to_s.length >= 49 %>
+									<div class="text-right">
+										<%= link_to "more", te, style: "cursor: pointer;" %>
+									</div>
+								<% end %>
 							</div>
 						</div>
 					</div>
