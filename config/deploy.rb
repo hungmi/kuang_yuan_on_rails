@@ -9,8 +9,11 @@ set :linked_files, %w{config/database.yml config/application.yml config/secrets.
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 set :bundle_binstubs, nil
 set :keep_releases, 5
-set :rvm_type, :user
-set :rvm_ruby_version, 'ruby-2.3.3' # Edit this if you are using MRI Ruby
+set :rbenv_type, :user # or :system, depends on your rbenv setup
+# in case you want to set ruby version from the file:
+set :rbenv_ruby, File.read('.ruby-version').strip
+# set :rvm_type, :user
+# set :rvm_ruby_version, 'ruby-2.3.3' # Edit this if you are using MRI Ruby
 
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
 set :puma_state, "#{shared_path}/tmp/pids/puma.state"
