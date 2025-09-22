@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: kuang_yuan_on_rails_production
-  username: kuang_yuan_on_rails
-  password: <%= ENV['KUANG_YUAN_ON_RAILS_DATABASE_PASSWORD'] %>
+  database: <%= ENV['PG_DBNAME'] %>
+  username: <%= ENV['PG_USERNAME'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
