@@ -11,7 +11,7 @@ set :bundle_binstubs, nil
 set :keep_releases, 5
 set :rbenv_type, :user # or :system, depends on your rbenv setup
 # in case you want to set ruby version from the file:
-set :rbenv_ruby, "2.3.6" # File.read('.ruby-version').strip
+set :rbenv_ruby, "2.3.8" # File.read('.ruby-version').strip
 # set :rvm_type, :user
 # set :rvm_ruby_version, 'ruby-2.3.3' # Edit this if you are using MRI Ruby
 
