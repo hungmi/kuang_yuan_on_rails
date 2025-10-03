@@ -1,0 +1,15 @@
+[Unit]
+Description=KY Rails App
+After=network.target
+
+[Service]
+Type=simple
+User=deploy
+WorkingDirectory=/home/deploy/kuang_yuan_on_rails
+ExecStartPre=/home/deploy/.rbenv/shims/bundle exec rails assets:precompile RAILS_ENV=production
+ExecStart=/home/deploy/.rbenv/shims/bundle exec puma -C config/puma.rb
+Restart=always
+Environment=RAILS_ENV=production
+
+[Install]
+WantedBy=multi-user.target
